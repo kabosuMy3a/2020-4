@@ -33,6 +33,7 @@ vector<int> solution(int n) {
     int val = 1 ;
         
     while(warm_size != 0){
+        
         //(1)insert warm_size elements from start_idx to end_idx
         for(int i = start_idx ; i <= end_idx ; i++){
              if(start_idx == 1) lists[i].push_front(val++);
@@ -58,7 +59,8 @@ vector<int> solution(int n) {
 
         warm_size -= 1;
         end_idx -= 1 ;
-        if(warm_size == 0) break; 
+        if(warm_size == 0) break;
+
         //(3)insert warm_size elements one by one from end_idx to (end_idx - warm_size)
         for(int i = end_idx ; i > end_idx - warm_size ; i--){
             it = lists[i].begin();
