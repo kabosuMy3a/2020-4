@@ -71,16 +71,15 @@ vector<int> solution(int n) {
 
         
     }
-    
-    print_list(lists,n);
-
-  
     vector<int> answer;
+    
+    for(int i = 1 ; i <= n ; i++){
+        for(auto e : lists[i]){
+            answer.push_back(e);            
+        }
+    }
+  
+
     return answer;
 
-}
-
-int main(){
-
-   solution(13);
 }
