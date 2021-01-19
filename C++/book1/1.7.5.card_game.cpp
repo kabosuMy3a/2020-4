@@ -2,6 +2,7 @@
 //가끔 무한 루프가 걸리는데 이유는 아마
 //Erase 로직 아니면 랜덤 관련 이슈
 //Solution from book is 1.7.5+1.solution.cpp
+//Solution 코드도 같은 오류인 것 보니 게임 자체의 오류 
 
 #include <iostream>
 #include <random>
@@ -10,6 +11,7 @@
 #include <vector>
 #include <array>
 #include <cstdlib>
+#include <chrono>
 
 enum Shape{
 	clover,
@@ -42,6 +44,7 @@ struct Player {
 	}
 
 	Card submit(){
+		/*
 		std::random_device rd ;
 		std::mt19937 g(rd());
 		int hand_max = hand.size()-1 ;
@@ -50,7 +53,11 @@ struct Player {
 
 
 		Card card = hand.at(num);
-		hand.erase(hand.begin()+num);
+		hand.erase(hand.begin()+num);*/
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::shuffle(hand.begin(),hand.end(),std::default_random_engine(seed));
+		Card card = hand.at(hand.size()-1);
+		hand.pop_back();
 
 		return card ;
 
