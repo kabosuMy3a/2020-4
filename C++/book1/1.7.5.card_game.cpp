@@ -1,4 +1,5 @@
 //Written by kabosuMy3a 210119 ~ 210120
+//Solution from book is 1.7.5+1.solution.cpp
 
 #include <iostream>
 #include <random>
