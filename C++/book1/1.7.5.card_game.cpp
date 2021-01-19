@@ -1,4 +1,6 @@
 //Written by kabosuMy3a 210119 ~ 210120
+//가끔 무한 루프가 걸리는데 이유는 아마
+//Erase 로직 아니면 랜덤 관련 이슈
 //Solution from book is 1.7.5+1.solution.cpp
 
 #include <iostream>
@@ -7,6 +9,7 @@
 #include <algorithm>
 #include <vector>
 #include <array>
+#include <cstdlib>
 
 enum Shape{
 	clover,
@@ -22,8 +25,6 @@ std::string Shapes[]= {
 struct Card {
 	int num ;
 	Shape shape;
-
-
 };
 
 std::ostream& operator<<(std::ostream& os, const Card& card){
@@ -199,11 +200,9 @@ void start_game(int round){
 	start_round(round);
 }
 
-int main(){
-
+int main(int argc, char** argv){
 	
-	start_game(2);
+	start_game(atoi(argv[1]));
 	
-
 	return 0; 
 }
